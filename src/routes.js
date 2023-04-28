@@ -19,6 +19,7 @@ routes.post(BASE, async(_, res) => {                     // solicitud post  agre
       readProducts(function (err, products) {
         if(err){
           res.status(404)
+          console.log("vamos bien")
         } else {
           const id = products.length + 1;     // el id va  ser igual al ultimo que este por defecto + 1 siendo en ultimo el que se ingreso 
           const newProduct = ({ id,...req.body});  // el nuevo producto tiene que tener name descriprion
