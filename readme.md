@@ -2,8 +2,10 @@
 ## listar todos los elementos de una colección
  para mostros todos los elementos de  mi coleccion  utilizo el comando  db.products.find()
 
- Este fue el resultado:![img1](.\Users\mateo\OneDrive\Escritorio\DavidNaranjo\clase5\img1.png) ![img1](https://user-images.githubusercontent.com/127431125/235268201-c92d20d9-0d4f-47a9-ac57-3dbcfa939245.jpg)
-
+ Este fue el resultado:
+ ![img1](https://user-images.githubusercontent.com/127431125/235268201-c92d20d9-0d4f-47a9-ac57-3dbcfa939245.jpg)
+ 
+ 
 para solo traer  un elemento utilizo este comando:db.products.findOne({"title":"iphone x"})
 
 Este fue el resultado:![img2](./DavidNaranjo/clase5/img/img2.png)
