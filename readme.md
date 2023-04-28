@@ -1,7 +1,8 @@
 # operaciones básicas en la consola de MongoDB
 ## listar todos los elementos de una colección
  para mostros todos los elementos de  mi coleccion  utilizo el comando  db.products.find()
- Este fue el resultado:![img1](./DavidNaranjo/clase5/img/img1.png)
+
+ Este fue el resultado:![img1](.\Users\mateo\OneDrive\Escritorio\DavidNaranjo\clase5\img1.png)
 
 para solo traer  un elemento utilizo este comando:db.products.findOne({"title":"iphone x"})
 
