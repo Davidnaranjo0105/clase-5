@@ -11,7 +11,7 @@ Este fue el resultado:
 ## Editar uno de los elementos de la colección
 para editar un elemento de mi coleccion  utilizo este comando:db.products.updataOne({title:"iphone6"},{$set{title:"iphone 6 pro max",price:640}}) 
 
-Este fue el resultado: ![img1]((.\David naranjo\clase5\img/img1.png))
+Este fue el resultado: ![img1]((./David naranjo/clase5/img/img1.png))
 ## Eliminar uno de los elementos de la colección.
 
 para elimininar un elemento de mi coleccion utilizo el siguiente comando:db.products.deleteOne({title:"iphone9"})
