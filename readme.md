@@ -16,6 +16,6 @@ Este fue el resultado:
 
 ## Eliminar uno de los elementos de la colección.
 
-#####para elimininar un elemento de mi coleccion utilizo el siguiente comando:db.products.deleteOne({title:"iphone9"})
+para elimininar un elemento de mi coleccion utilizo el siguiente comando:db.products.deleteOne({title:"iphone9"})
 
-#####Este fue el resultado:
+Este fue el resultado:
