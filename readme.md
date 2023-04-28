@@ -6,7 +6,7 @@
 para solo traer  un elemento utilizo este comando:db.products.findOne({"title":"iphone x"})
 
 Este fue el resultado:
-(./img/img1.png)
+
 
 ## Editar uno de los elementos de la colección
 para editar un elemento de mi coleccion  utilizo este comando:db.products.updataOne({title:"iphone6"},{$set{title:"iphone 6 pro max",price:640}}) 
