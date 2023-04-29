@@ -4,9 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 //const PORT = process.env.PORT || 3000;
-const PORT = 27017
-
-
+const PORT = 3001
 
 console.log("Mongo", process.env.MONGODB_CONECTION);
 app.use("/", require("./routes"));
@@ -23,7 +21,7 @@ const start = async () => {
     });
   } catch (e) {
     console.error(e);
-    process.exit(1); // Forzar el cierre de algo en JS
+    process.exit(1); // Forzar el cierre 
   }
 };
 

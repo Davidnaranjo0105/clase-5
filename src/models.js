@@ -1,9 +1,9 @@
-const mongoose = requiere ("mongoose");
-const producto = mongoose.schema({
-    name: {type: String,required : true},
-    description: {type: String, required : false},
-    price: { type:mumber,required:true},
-    quantity: { type:mumber,required:true},
-    category: {type: String, required : false},
+const mongoose = require("mongoose");
+const ProductsSchema = mongoose.Schema({
+  name: { type: String, require: true },
+	description: { type: String, require: false },
+	availableUnits: { type: Number, require: false},
+	price: { type: Number, require: true },
+	category: { type: String, require: false },
 });
- exports.products = mongoose.model ("products",productsScema);
+  module.exports = mongoose.model('products', ProductsSchema);

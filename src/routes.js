@@ -1,42 +1,45 @@
 const {Router} = require("express");
 const { Product } = require("./models");
+const routes = new Router();
+const BASE = "/api/v1/products"; 
 
-const routes = new Router;
-
-routes.get("/health", (_, res) => res.send("check"));
-//estudiar heatlh check
-
-const BASE = "/api/v1/products";
-
-routes.get(BASE, async(_,res)=>{
+routes.get(BASE, async (_, res) => {
+  try {
     const products = await Product.find();
-    res.json(products);
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
-
-routes.post(BASE, async(_, res) => {                     // solicitud post  agregar productos 
-    const {name, description, price, quantity, category } = req.body;  
-    if (name && description && price && quantity && category) {    //  si nos ingresas name,descriptios...
-      readProducts(function (err, products) {
-        if(err){
-          res.status(404)
-          console.log("vamos bien")
-        } else {
-          const id = products.length + 1;     // el id va  ser igual al ultimo que este por defecto + 1 siendo en ultimo el que se ingreso 
-          const newProduct = ({ id,...req.body});  // el nuevo producto tiene que tener name descriprion
-          products.push(newProduct);
-          console.log(products)
-          if (writeProducts(products)) {
-            res.status(200).json(products); 
-          }else{
-            res.status(500).json('Product cant be saved, try again'); 
-          }
-          
-        }
-      })
-    }else{
-      res.send('Product cant be save, all data is required');
-      res.status(400).end();
+routes.post(BASE, async(req, res) => { 
+try {
+  const {name, description, price, availableUnits, category } = req.body;
+  const Product = await new Product(req.body).save();
+  res.status(200).json(Product);
+} catch (error) {
+  res.status(500).json('Product cant be saved, try again');
+}});
+routes.patch(`${BASE}/:id`, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateFields = req.body;
+    const product = await Product.findByIdAndUpdate(id, updateFields);
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+routes.delete(`${BASE}/:id`, async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const deletedProduct = await Product.findByIdAndDelete(productId);
+    if (!deletedProduct) {
+      return res.status(404).json('Product not found');
     }
-  }); 
+    res.status(200).json('Product deleted successfully');
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
   module.exports = routes;
