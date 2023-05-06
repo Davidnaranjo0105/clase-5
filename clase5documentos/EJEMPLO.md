@@ -108,3 +108,58 @@ Elimina un registro de la tabla `productos`:
 DELETE FROM productos
 WHERE id = 2;
 ```
+**Schema (PostgreSQL v15)**
+
+    CREATE TABLE products (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(100) NOT NULL,
+      description TEXT,
+      price DECIMAL(10, 2) NOT NULL,
+      inventory INTEGER NOT NULL
+    );
+    iNSERT INTO products (name, description, price, inventory)
+    VALUES ('Producto 1', 'Descripción del producto 1', 10.99, 100),
+           ('Producto 2', 'Descripción del producto 2', 19.99, 50),
+           ('Producto 3', 'Descripción del producto 3', 5.99, 200),
+           ('Producto 4', 'Descripción del producto 4', 17.99, 400),
+           ('Producto 5', 'Descripción del producto 5', 29.99, 550),
+           ('Producto 6', 'Descripción del producto 6', 8.99, 600),
+           ('Producto 7', 'Descripción del producto 7', 18.99, 700),
+           ('Producto 8', 'Descripción del producto 8', 11.99, 80);
+
+---
+
+**Query #1**
+
+    select * from products order by price,inventory asc;
+
+| id  | name       | description                | price | inventory |
+| --- | ---------- | -------------------------- | ----- | --------- |
+| 3   | Producto 3 | Descripción del producto 3 | 5.99  | 200       |
+| 6   | Producto 6 | Descripción del producto 6 | 8.99  | 600       |
+| 1   | Producto 1 | Descripción del producto 1 | 10.99 | 100       |
+| 8   | Producto 8 | Descripción del producto 8 | 11.99 | 80        |
+| 4   | Producto 4 | Descripción del producto 4 | 17.99 | 400       |
+| 7   | Producto 7 | Descripción del producto 7 | 18.99 | 700       |
+| 2   | Producto 2 | Descripción del producto 2 | 19.99 | 50        |
+| 5   | Producto 5 | Descripción del producto 5 | 29.99 | 550       |
+
+---
+**Query #2**
+
+    select *from products
+    where  inventory > 0 
+    order by products  asc
+    offset 2
+    limit 3
+    ;
+
+| id  | name       | description                | price | inventory |
+| --- | ---------- | -------------------------- | ----- | --------- |
+| 3   | Producto 3 | Descripción del producto 3 | 5.99  | 200       |
+| 4   | Producto 4 | Descripción del producto 4 | 17.99 | 400       |
+| 5   | Producto 5 | Descripción del producto 5 | 29.99 | 550       |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/)
