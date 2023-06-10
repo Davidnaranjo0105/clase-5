@@ -21,11 +21,20 @@ jobs:
         with: 
           node-version: 18.x
           
-      - name: Install
+      - name: Install and build
         run: npm ci -- silent
-          
+          - name: Install
+        run: npm ci --silent
+
+      - name: Build
+        run: npm run build -ws --if-present
+
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+    
         
-        
+
+ 
         
          
   
