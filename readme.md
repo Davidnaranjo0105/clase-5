@@ -24,4 +24,5 @@ Este fue el resultado:
 para elimininar un elemento de mi coleccion utilizo el siguiente comando:db.products.deleteOne({title:"iphone9"})
 
 Este fue el resultado:![3341a286-d5f5-4783-9d55-6e4ecf5c2250](https://user-images.githubusercontent.com/127431125/235272919-6a774810-859f-4caf-89fd-90d02fbaf628.jpg)
+[![Mi primer workflow](https://github.com/Davidnaranjo0105/clase-5/actions/workflows/main.yml/badge.svg)](https://github.com/Davidnaranjo0105/clase-5/actions/workflows/main.yml)
 
